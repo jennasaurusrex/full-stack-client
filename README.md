@@ -14,7 +14,7 @@ front-end frameworks included.
 1. Rename the template directory from `browser-template-master` to
     `<project-name>-client`.
 1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `full stack client` with the name of
+1. Replace all instances of `full-stack-client` with the name of
     your project.
 1. Move into the new project and `git init`.
 1. Add all of the files in your project with the command `git add --all`.
