@@ -17,4 +17,7 @@ $(() => {
 
   $('#create-recipe').on('submit', recipeEvents.onCreateRecipe)
   $('#show-recipes').on('submit', recipeEvents.onShowRecipes)
+  $('#show-recipe').on('submit', recipeEvents.onShowRecipe)
+  $('#update-recipe').on('submit', recipeEvents.onUpdateRecipe)
+  $('#destroy-recipe').on('submit', recipeEvents.onDestroyRecipe)
 })
