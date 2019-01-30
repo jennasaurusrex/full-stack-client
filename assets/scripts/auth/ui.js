@@ -2,6 +2,7 @@
 const store = require('../store')
 
 const onSignUpSuccess = (response) => {
+  console.log(`success is: ${response}`)
   $('#user-message').text('Successfully signed up!')
 }
 
@@ -20,6 +21,7 @@ const onSignOutSuccess = () => {
 }
 
 const onFailure = (response) => {
+  console.log('error is:', response)
   $('#user-message').text('Error. Try again.')
 }
 
