@@ -1,0 +1,14 @@
+{{#each recipes as |recipe|}}
+
+  <div>
+    <section data-id="{{recipe.name}}">
+    <h1> <small>Name: {{recipe.name}}</small></h1>
+    {{#if recipe.description}}
+      {{recipe.description}}
+    {{else}}
+      No description provided.
+    {{/if}}
+  </section>
+  </div>
+
+{{/each}}

@@ -16,6 +16,7 @@ const createRecipe = (formData) => {
 }
 
 const showRecipes = function () {
+  console.log('showRecipes ran!')
   return $.ajax({
     url: config.apiUrl + '/recipes',
     method: 'GET',

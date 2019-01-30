@@ -12,6 +12,7 @@ const onCreateRecipe = (event) => {
   api.createRecipe(data)
     .then(ui.onCreateRecipeSuccess)
     .catch(ui.onFailure)
+  $('form').trigger('reset')
 }
 
 const onShowRecipes = function (event) {
@@ -21,6 +22,7 @@ const onShowRecipes = function (event) {
   api.showRecipes()
     .then(ui.onShowRecipesSuccess)
     .catch(ui.onFailure)
+  $('form').trigger('reset')
 }
 
 const onShowRecipe = function (event) {
@@ -39,6 +41,7 @@ const onShowRecipe = function (event) {
     $('#user-message').css('background-color', 'red')
     console.log('Please enter a recipe id!')
   }
+  $('form').trigger('reset')
 }
 
 const onUpdateRecipe = function (event) {
@@ -63,6 +66,7 @@ const onUpdateRecipe = function (event) {
     $('#user-message').css('background-color', 'red')
     console.log('Please provide a recipe id!')
   }
+  $('form').trigger('reset')
 }
 
 const onDestroyRecipe = function (event) {
@@ -81,6 +85,7 @@ const onDestroyRecipe = function (event) {
     $('#user-message').css('background-color', 'red')
     console.log('Please provide a recipe id!')
   }
+  $('form').trigger('reset')
 }
 
 module.exports = {
