@@ -1,13 +1,56 @@
 {{#each recipes as |recipe|}}
 
   <div>
-    <section data-id="{{recipe.name}}">
+    <section data-id="{{recipe.id}}">
     <h1> <small>Name: {{recipe.name}}</small></h1>
     {{#if recipe.description}}
       {{recipe.description}}
     {{else}}
       No description provided.
     {{/if}}
+    <br>
+    <button type="button" class="btn btn-primary update-recipe" data-toggle="modal" data-target="#modal_{{recipe.id}}">
+  Edit
+</button>
+
+    <div class="modal fade" id="modal_{{recipe.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="#yo_{{recipe.id}}">Edit Recipe</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="update-recipe">
+          <div class="form-group">
+            <label>Name:</label>
+            <input type="text" name="recipe[name]" class="form-control" placeholder="Name your recipe">
+          </div>
+          <div class="form-group">
+            <label>Description:</label>
+            <input type="text" name="recipe[description]" class="form-control" placeholder="Provide a short description">
+          </div>
+          <div class="form-group">
+            <label>Ingredients:</label>
+            <input type="text" name="recipe[ingredients]" class="form-control" placeholder="A list of ingredients">
+          </div>
+          <div class="form-group">
+            <label>Instructions:</label>
+            <input type="text" name="recipe[instructions]" class="form-control" placeholder="Instructions for your recipe">
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary update" data-dismiss="modal">Save changes</button>
+      </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary remove">Delete</button>
   </section>
   </div>
 

@@ -36,9 +36,11 @@ const showRecipe = function (recipe) {
   })
 }
 
-const updateRecipe = function (data) {
+const updateRecipe = function (data, target) {
+  console.log('data is ', data)
+  console.log('target is: ', target)
   return $.ajax({
-    url: config.apiUrl + '/recipes/' + data.recipe.id,
+    url: config.apiUrl + '/recipes/' + target,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

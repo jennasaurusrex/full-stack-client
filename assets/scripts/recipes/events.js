@@ -47,45 +47,27 @@ const onShowRecipe = function (event) {
 const onUpdateRecipe = function (event) {
   event.preventDefault()
   console.log('onUpdateRecipe ran!')
-
+  console.log($(event.target).closest('section'))
   const data = getFormFields(event.target)
-  const recipe = data.recipe
+  const target = $(event.target).closest('section').data('id')
+  console.log('events.js data is ', data)
+  console.log('event.target is ', event.target)
+  api.updateRecipe(data, target)
+    .then(ui.onUpdateRecipeSuccess)
+    .catch(ui.onFailure)
 
-  if (recipe.text === '') {
-    $('#user-message').html('<p>Text is required</p>')
-    $('#user-message').css('background-color', 'red')
-    console.log('Recipe is required!')
-    return false
-  }
-  if (recipe.id.length !== 0) {
-    api.updateRecipe(data)
-      .then(ui.onUpdateRecipeSuccess)
-      .catch(ui.onFailure)
-  } else {
-    $('#user-message').html('<p>Please provide a recipe id!</p>')
-    $('#user-message').css('background-color', 'red')
-    console.log('Please provide a recipe id!')
-  }
   $('form').trigger('reset')
 }
 
 const onDestroyRecipe = function (event) {
   event.preventDefault()
+  const target = $(event.target).closest('section').data('id')
   console.log('onDestroyRecipe ran!')
 
-  const data = getFormFields(event.target)
-  const recipe = data.recipe
-
-  if (recipe.id.length !== 0) {
-    api.destroyRecipe(recipe.id)
-      .then(ui.onDestroyRecipeSuccess)
-      .catch(ui.onFailure)
-  } else {
-    $('#user-message').html('<p>Please provide a recipe id!</p>')
-    $('#user-message').css('background-color', 'red')
-    console.log('Please provide a recipe id!')
-  }
-  $('form').trigger('reset')
+  api.destroyRecipe(target)
+    .then(ui.onDestroyRecipeSuccess)
+    .catch(ui.onFailure)
+  console.log('Please provide a recipe id!')
 }
 
 module.exports = {
