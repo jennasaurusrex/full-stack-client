@@ -2,14 +2,45 @@
 
   <div>
     <section data-id="{{recipe.id}}">
-    <h1> <small>Name: {{recipe.name}}</small></h1>
+    <h1> <small>{{recipe.name}}</small></h1>
     {{#if recipe.description}}
       {{recipe.description}}
     {{else}}
       No description provided.
     {{/if}}
     <br>
-    <button type="button" class="btn btn-primary update-recipe" data-toggle="modal" data-target="#modal_{{recipe.id}}">
+    <!-- view trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal{{recipe.id}}">
+  View
+</button>
+
+<!-- Modal -->
+ <div class="modal fade" id="Modal{{recipe.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Modal2{{recipe.id}}">{{recipe.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Description: {{recipe.description}}<br>
+        Ingredients: {{recipe.ingredients}}<br>
+        Instructions: {{recipe.instructions}}
+        <br><br>
+        Created By: {{recipe.user.email}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--update modal-->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_{{recipe.id}}">
   Edit
 </button>
 
@@ -42,7 +73,7 @@
           </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary update" data-dismiss="modal">Save changes</button>
+        <button type="submit" class="btn btn-primary update-btn">Save changes</button>
       </div>
       </form>
       </div>

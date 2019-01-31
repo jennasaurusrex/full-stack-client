@@ -51,11 +51,13 @@ const onUpdateRecipe = function (event) {
   const data = getFormFields(event.target)
   const target = $(event.target).closest('section').data('id')
   console.log('events.js data is ', data)
-  console.log('event.target is ', event.target)
+  console.log('event.target is ', $(event.target).serializeArray())
   api.updateRecipe(data, target)
     .then(ui.onUpdateRecipeSuccess)
     .catch(ui.onFailure)
-
+  $('#modal_' + target).modal('hide')
+  $('.modal-backdrop').hide()
+  $('body').toggleClass('modal-open')
   $('form').trigger('reset')
 }
 
