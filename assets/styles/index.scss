@@ -1,1 +1,39 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  background-attachment: fixed;
+  background-image: url('https://imgur.com/gYCB8sy.jpg');
+  background-repeat: no-repeat;
+  padding-top: 71px;
+}
+
+.logout {
+  float: right;
+}
+
+.login {
+  float: left;
+}
+
+.welcome,
+.index {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.signin {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .fixed-top {
+    bottom: 0;
+    top: auto;
+  }
+
+  body {
+    padding-bottom: 71px;
+    padding-top: 0;
+  }
+}

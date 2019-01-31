@@ -3,7 +3,8 @@
 const showRecipesTemplate = require('../templates/helpers/recipelisting.handlebars')
 
 const onCreateRecipeSuccess = (response) => {
-  $('#user-message').text('New recipe created.')
+  $('#user-message').html('<div class="text-center alert alert-success" role="alert">Success!</div>')
+  $('#exampleModal4').modal('hide')
 }
 
 const onShowRecipesSuccess = (response) => {
@@ -11,29 +12,24 @@ const onShowRecipesSuccess = (response) => {
   console.log(response)
   const showRecipesHtml = showRecipesTemplate({ recipes: response.recipes })
   //  console.log(showRecipesHtml)
-  $('#user-message').html(showRecipesHtml)
-}
-
-const onShowRecipeSuccess = (response) => {
-  $('#user-message').text('Show recipe success.')
+  $('#user-message').html(`<div class="text-center alert alert-success" role="alert">${showRecipesHtml}</div>`)
 }
 
 const onUpdateRecipeSuccess = () => {
-  $('#user-message').text('Update recipe success.')
+  $('#user-message').html('<div class="text-center alert alert-success" role="alert">Recipe updated!</div>')
 }
 
 const onDestroyRecipeSuccess = () => {
-  $('#user-message').text('Delete recipe success.')
+  $('#user-message').html('<div class="text-center alert alert-success" role="alert">Deleted.</div>')
 }
 
 const onFailure = (response) => {
-  $('#user-message').text('Error. Try again.')
+  $('#user-message').html('<div class="text-center alert alert-success" role="alert">Please try again.</div>')
 }
 
 module.exports = {
   onCreateRecipeSuccess,
   onShowRecipesSuccess,
-  onShowRecipeSuccess,
   onUpdateRecipeSuccess,
   onDestroyRecipeSuccess,
   onFailure

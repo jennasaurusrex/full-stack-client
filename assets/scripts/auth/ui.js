@@ -3,26 +3,30 @@ const store = require('../store')
 
 const onSignUpSuccess = (response) => {
   console.log(`success is: ${response}`)
-  $('#user-message').text('Successfully signed up!')
+  $('#user-message').html('<div class="text-center alert alert-success" role="alert">Signed up!</div>')
 }
 
 const onSignInSuccess = (response) => {
-  $('#user-message').text(`Hello, ${response.user.email}!`)
+  $('#user-message').html(`<div class="text-center alert alert-success" role="alert">Hello, ${response.user.email}!</div>`)
   store.user = response.user
+  $('.welcome').hide()
+  $('.navbar').show()
 }
 
 const onChangePasswordSuccess = () => {
-  $('#user-message').text('Successfully changed password.')
+  $('#user-message').html('<div class="text-center alert alert-success" role="alert">Changed password!</div>')
 }
 
 const onSignOutSuccess = () => {
-  $('#user-message').text('Successfully signed out.')
+  $('#user-message').html(`<div class="text-center alert alert-success" role="alert">Signed out</div>`)
+  $('.welcome').show()
+  $('.navbar').hide()
   store.user = null
 }
 
 const onFailure = (response) => {
   console.log('error is:', response)
-  $('#user-message').text('Error. Try again.')
+  $('#user-message').html('<div class="text-center alert alert-danger" role="alert">Error. Please try again.</div>')
 }
 
 module.exports = {

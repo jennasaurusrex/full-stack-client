@@ -10,6 +10,9 @@ const recipeEvents = require('./recipes/events')
 // require('./example')
 
 $(() => {
+  $('.welcome').show()
+  $('.index').hide()
+  $('.navbar').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
@@ -17,6 +20,6 @@ $(() => {
 
   $('#create-recipe').on('submit', recipeEvents.onCreateRecipe)
   $('#show-recipes').on('click', recipeEvents.onShowRecipes)
-  $('#user-message').on('submit', '.update-recipe', recipeEvents.onUpdateRecipe)
-  $('#user-message').on('click', '.remove', recipeEvents.onDestroyRecipe)
+  $('body').on('submit', '.update-recipe', recipeEvents.onUpdateRecipe)
+  $('body').on('click', '.remove', recipeEvents.onDestroyRecipe)
 })

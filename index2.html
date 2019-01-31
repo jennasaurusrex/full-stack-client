@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Recipe Journal</h1>
+      <div id="user-message"></div>
+
+      <!-- sign up form-->
+      <h1>Sign Up</h1>
+      <form id="sign-up">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Confirm Password</label>
+          <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <!-- sign in form-->
+      <h1>Sign In</h1>
+      <form id="sign-in">
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <!-- change password form-->
+      <h1>Change Password</h1>
+      <form id="change-password">
+        <div class="form-group">
+          <label>Enter your own password</label>
+          <input type="password" name="passwords[old]" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
+        </div>
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <button type="submit" id="sign-out" class="btn btn-primary">Log Out</button>
+
+      <!-- recipe CRUD-->
+      <!-- create-->
+      <h1>Create a new recipe</h1>
+      <form id="create-recipe">
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" name="recipe[name]" class="form-control" placeholder="Name your recipe">
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <input type="text" name="recipe[description]" class="form-control" placeholder="Provide a short description">
+        </div>
+        <div class="form-group">
+          <label>Ingredients:</label>
+          <input type="text" name="recipe[ingredients]" class="form-control" placeholder="A list of ingredients">
+        </div>
+        <div class="form-group">
+          <label>Instructions:</label>
+          <input type="text" name="recipe[instructions]" class="form-control" placeholder="Instructions for your recipe">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <!-- index-->
+      <h1>All recipes</h1>
+        <button type="submit" id="show-recipes" class="btn btn-primary">Index</button>
+</html>
