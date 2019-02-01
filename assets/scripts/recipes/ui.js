@@ -8,10 +8,10 @@ const onCreateRecipeSuccess = (response) => {
 }
 
 const onShowRecipesSuccess = (response) => {
-  console.log('onShowRecipesSuccess ran!')
-  console.log(response)
+  // console.log('onShowRecipesSuccess ran!')
+  // console.log(response)
   const showRecipesHtml = showRecipesTemplate({ recipes: response.recipes })
-  //  console.log(showRecipesHtml)
+  //  // console.log(showRecipesHtml)
   $('#user-message').html('<div class="text-center alert alert-success" role="alert">Listing recipes...</div>')
   $('#index').show()
   $('#index').html(showRecipesHtml)

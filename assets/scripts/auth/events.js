@@ -5,10 +5,10 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onSignUp = (event) => {
-  console.log(`sign up event is: ${event}`)
+  // console.log(`sign up event is: ${event}`)
   event.preventDefault()
   const formData = getFormFields(event.target)
-  console.log('formdata is: ', formData)
+  // console.log('formdata is: ', formData)
 
   api.signUp(formData)
     .then(ui.onSignUpSuccess)

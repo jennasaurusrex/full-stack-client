@@ -4,7 +4,7 @@ const store = require('../store')
 const config = require('../config')
 
 const createRecipe = (formData) => {
-  console.log('data: ', formData)
+  // console.log('data: ', formData)
   return $.ajax({
     url: config.apiUrl + '/recipes',
     method: 'POST',
@@ -16,7 +16,7 @@ const createRecipe = (formData) => {
 }
 
 const showRecipes = function () {
-  console.log('showRecipes ran!')
+  // console.log('showRecipes ran!')
   return $.ajax({
     url: config.apiUrl + '/recipes',
     method: 'GET',
@@ -37,8 +37,8 @@ const showRecipe = function (recipe) {
 }
 
 const updateRecipe = function (data, target) {
-  console.log('data is ', data)
-  console.log('target is: ', target)
+  // console.log('data is ', data)
+  // console.log('target is: ', target)
   return $.ajax({
     url: config.apiUrl + '/recipes/' + target,
     method: 'PATCH',

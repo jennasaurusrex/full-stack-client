@@ -6,7 +6,7 @@ const ui = require('./ui')
 
 const onCreateRecipe = (event) => {
   event.preventDefault()
-  console.log('create recipe ran!')
+  // console.log('create recipe ran!')
 
   const data = getFormFields(event.target)
   api.createRecipe(data)
@@ -17,7 +17,7 @@ const onCreateRecipe = (event) => {
 
 const onShowRecipes = function (event) {
   event.preventDefault()
-  console.log('onShowRecipes ran!')
+  // console.log('onShowRecipes ran!')
 
   api.showRecipes()
     .then(ui.onShowRecipesSuccess)
@@ -27,7 +27,7 @@ const onShowRecipes = function (event) {
 
 const onShowRecipe = function (event) {
   event.preventDefault()
-  console.log('onShowRecipe ran!')
+  // console.log('onShowRecipe ran!')
 
   const data = getFormFields(event.target)
   const recipe = data.recipe
@@ -39,19 +39,19 @@ const onShowRecipe = function (event) {
   } else {
     $('#user-message').html('<p>Please provide a recipe id!</p>')
     $('#user-message').css('background-color', 'red')
-    console.log('Please enter a recipe id!')
+    // console.log('Please enter a recipe id!')
   }
   $('form').trigger('reset')
 }
 
 const onUpdateRecipe = function (event) {
   event.preventDefault()
-  console.log('onUpdateRecipe ran!')
-  console.log($(event.target).closest('section'))
+  // console.log('onUpdateRecipe ran!')
+  // console.log($(event.target).closest('section'))
   const data = getFormFields(event.target)
   const target = $(event.target).closest('section').data('id')
-  console.log('events.js data is ', data)
-  console.log('event.target is ', $(event.target).serializeArray())
+  // console.log('events.js data is ', data)
+  // console.log('event.target is ', $(event.target).serializeArray())
   api.updateRecipe(data, target)
     .then(ui.onUpdateRecipeSuccess)
     .catch(ui.onFailure)
@@ -64,13 +64,13 @@ const onUpdateRecipe = function (event) {
 const onDestroyRecipe = function (event) {
   event.preventDefault()
   const target = $(event.target).closest('section').data('id')
-  console.log('onDestroyRecipe ran!')
+  // console.log('onDestroyRecipe ran!')
 
   api.destroyRecipe(target)
     .then(ui.onDestroyRecipeSuccess)
     .then(() => onShowRecipes(event))
     .catch(ui.onFailure)
-  console.log('Please provide a recipe id!')
+  // console.log('Please provide a recipe id!')
 }
 
 module.exports = {
