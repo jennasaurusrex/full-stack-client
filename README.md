@@ -1,3 +1,7 @@
+## ABOUT RECIPE JOURNAL
+
+This is my first full stack project! I have created a log book of sorts where you can keep track of recipes you admire and update them with relevant information! You can also see all of the recipes created by any user that has used this website! Thanks for checkin' it out.
+
 ## TECHNOLOGIES IN USE
 
 - JavaScript
