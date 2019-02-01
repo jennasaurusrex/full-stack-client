@@ -39,3 +39,6 @@ Link to ERD:
 ## UNSOLVED PROBLEMS
 
 I never got around to adding a comment section to rate and/or add tips to other people's recipes. I also never got around to making a search bar, which was kind of the highlight of my project (or so I thought) going into this.
+
+## LINK TO API
+(https://github.com/jennasaurusrex/full-stack-api)
