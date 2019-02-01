@@ -17,16 +17,11 @@ const onCreateRecipe = (event) => {
 
 const onShowRecipes = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  const recipe = data.recipe
   // console.log('onShowRecipes ran!')
-  if (recipe.id.length !== 0) {
-    api.showRecipes()
-      .then(ui.onShowRecipesSuccess)
-      .catch(ui.onFailure)
-  } else {
-    ui.onFailure()
-  }
+
+  api.showRecipes()
+    .then(ui.onShowRecipesSuccess)
+    .catch(ui.onFailure)
   $('form').trigger('reset')
 }
 
