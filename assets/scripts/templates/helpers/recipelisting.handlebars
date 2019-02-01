@@ -7,7 +7,8 @@
       {{recipe.description}}
     {{else}}
       No description provided.
-    {{/if}}
+    {{/if}}<br>
+      <strong>Created By:</strong> {{recipe.user.email}}
     <br>
     <!-- view trigger modal -->
 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#Modal{{recipe.id}}">
