@@ -2,9 +2,9 @@
 
   <div>
     <section data-id="{{recipe.id}}">
-    <h1> <small>{{recipe.name}}</small></h1>
+    <h1> <span class="title">{{limit recipe.name 20}}</span><i class="fas fa-seedling"></i></h1>
     {{#if recipe.description}}
-      {{recipe.description}}
+      {{limit recipe.description 30}}
     {{else}}
       No description provided.
     {{/if}}<br>
@@ -20,15 +20,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="Modal2{{recipe.id}}">{{recipe.name}}</h5>
+        <h5 class="modal-title" id="Modal2{{recipe.id}}"><strong>{{recipe.name}}</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <strong>Description:</strong> {{recipe.description}}<br>
-        <strong>Ingredients:</strong> {{recipe.ingredients}}<br>
-        <strong>Instructions:</strong> {{recipe.instructions}}
+        <strong>Description:</strong> <br>{{recipe.description}}<br>
+        <strong>Ingredients:</strong> <br>{{recipe.ingredients}}<br>
+        <strong>Instructions:</strong> <br>{{recipe.instructions}}
         <br><br>
         <strong>Created By:</strong> {{recipe.user.email}} &hearts;
       </div>
