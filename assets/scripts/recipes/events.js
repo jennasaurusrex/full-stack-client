@@ -68,6 +68,7 @@ const onDestroyRecipe = function (event) {
 
   api.destroyRecipe(target)
     .then(ui.onDestroyRecipeSuccess)
+    .then(() => onShowRecipes(event))
     .catch(ui.onFailure)
   console.log('Please provide a recipe id!')
 }

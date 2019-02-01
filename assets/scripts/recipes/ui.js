@@ -12,7 +12,9 @@ const onShowRecipesSuccess = (response) => {
   console.log(response)
   const showRecipesHtml = showRecipesTemplate({ recipes: response.recipes })
   //  console.log(showRecipesHtml)
-  $('#user-message').html(`<div class="text-center alert alert-success" role="alert">${showRecipesHtml}</div>`)
+  $('#user-message').html('<div class="text-center alert alert-success" role="alert">Listing recipes...</div>')
+  $('#index').show()
+  $('#index').html(showRecipesHtml)
 }
 
 const onUpdateRecipeSuccess = () => {

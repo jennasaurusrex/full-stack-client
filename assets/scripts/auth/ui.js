@@ -21,6 +21,7 @@ const onSignOutSuccess = () => {
   $('#user-message').html(`<div class="text-center alert alert-success" role="alert">Signed out</div>`)
   $('.welcome').show()
   $('.navbar').hide()
+  $('#index').hide()
   store.user = null
 }
 
