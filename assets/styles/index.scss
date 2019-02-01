@@ -15,11 +15,16 @@ body {
   float: left;
 }
 
-.welcome,
-.index {
+.welcome {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
+  font-family: 'Thasadith', sans-serif;
   padding: 30px;
+}
+
+.yo {
+  font-family: 'Thasadith', sans-serif;
+  font-size: 30px;
 }
 
 .signin {

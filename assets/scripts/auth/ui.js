@@ -11,6 +11,8 @@ const onSignInSuccess = (response) => {
   store.user = response.user
   $('.welcome').hide()
   $('.navbar').show()
+  $('#index').show()
+  $('#index').text('Welcome to your Recipe Journal! A personalized cook book designed to record your coveted recipes and share them with friends. Click the \'Create\' button to begin crafting recipes, or \'Show All\' to see what other users have been up to.')
 }
 
 const onChangePasswordSuccess = () => {

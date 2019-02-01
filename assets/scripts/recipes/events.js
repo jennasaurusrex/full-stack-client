@@ -9,9 +9,13 @@ const onCreateRecipe = (event) => {
   // console.log('create recipe ran!')
 
   const data = getFormFields(event.target)
-  api.createRecipe(data)
-    .then(ui.onCreateRecipeSuccess)
-    .catch(ui.onFailure)
+  if (data !== null) {
+    api.createRecipe(data)
+      .then(ui.onCreateRecipeSuccess)
+      .catch(ui.onFailure)
+  } else {
+    return ui.onFailure
+  }
   $('form').trigger('reset')
 }
 

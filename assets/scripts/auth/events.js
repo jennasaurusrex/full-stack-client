@@ -3,19 +3,27 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onSignUp = (event) => {
-  // console.log(`sign up event is: ${event}`)
   event.preventDefault()
   const formData = getFormFields(event.target)
-  // console.log('formdata is: ', formData)
+  store.credentials = formData
 
   api.signUp(formData)
-    .then(ui.onSignUpSuccess)
+    .then(onSignUpIn)
     .catch(ui.onFailure)
 
   $('form').trigger('reset')
   $('#exampleModal').modal('hide')
+}
+
+const onSignUpIn = (event) => {
+  delete store.credentials.password_confirmation
+  const dataWithoutPC = store.credentials
+  api.signIn(dataWithoutPC)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onFailure)
 }
 
 const onSignIn = event => {
