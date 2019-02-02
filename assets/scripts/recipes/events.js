@@ -9,13 +9,15 @@ const onCreateRecipe = (event) => {
   // console.log('create recipe ran!')
 
   const data = getFormFields(event.target)
-  if (data !== null) {
+  console.log('data.recipe.name is: ', data.recipe.name)
+  if (data.recipe.name !== '' && data.recipe.description !== '' && data.recipe.ingredients !== '' && data.recipe.instructions !== '') {
     api.createRecipe(data)
       .then(ui.onCreateRecipeSuccess)
       .catch(ui.onFailure)
   } else {
-    return ui.onFailure
+    ui.onFailure()
   }
+  $('#exampleModal4').modal('hide')
   $('form').trigger('reset')
 }
 
@@ -56,9 +58,13 @@ const onUpdateRecipe = function (event) {
   const target = $(event.target).closest('section').data('id')
   // console.log('events.js data is ', data)
   // console.log('event.target is ', $(event.target).serializeArray())
-  api.updateRecipe(data, target)
-    .then(ui.onUpdateRecipeSuccess)
-    .catch(ui.onFailure)
+  if (data.recipe.name !== '' || data.recipe.description !== '' || data.recipe.ingredients !== '' || data.recipe.instructions !== '') {
+    api.updateRecipe(data, target)
+      .then(ui.onUpdateRecipeSuccess)
+      .catch(ui.onFailure)
+  } else {
+    ui.onFailure()
+  }
   $('#modal_' + target).modal('hide')
   $('.modal-backdrop').hide()
   $('body').toggleClass('modal-open')
