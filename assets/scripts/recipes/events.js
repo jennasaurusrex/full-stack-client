@@ -9,7 +9,7 @@ const onCreateRecipe = (event) => {
   // console.log('create recipe ran!')
 
   const data = getFormFields(event.target)
-  console.log('data.recipe.name is: ', data.recipe.name)
+ //  console.log('data.recipe.name is: ', data.recipe.name)
   if (data.recipe.name !== '' && data.recipe.description !== '' && data.recipe.ingredients !== '' && data.recipe.instructions !== '') {
     api.createRecipe(data)
       .then(ui.onCreateRecipeSuccess)
