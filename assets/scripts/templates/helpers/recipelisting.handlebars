@@ -37,10 +37,11 @@
 </div>
 
 <!--update modal-->
+{{#if recipe.editable}}
 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal_{{recipe.id}}">
 Edit
 </button>
-
+{{/if}}
 
     <div class="modal fade" id="modal_{{recipe.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -79,8 +80,11 @@ Edit
   </div>
 </div>
 <br>
+
+{{#if recipe.editable}}
 <button type="submit" class="btn btn-outline-danger remove">Delete</button>
   </section>
   </div>
+{{/if}}
 
 {{/each}}
