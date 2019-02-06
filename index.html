@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Recipe Journal</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <!-- Nav Bar -->
+      <nav class="navbar fixed-top navbar-light bg-dark">
+      <span class="login">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
+          Create Recipe
+        </button>
+        <button type="submit" id="show-recipes" class="btn btn-primary">
+          Show All
+        </button>
+      </span>
+
+        <span class="logout">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+            Change Password
+          </button>
+          <button type="submit" id="sign-out" class="btn btn-primary">Log Out</button>
+        </span>
+      </nav>
+
+      <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-8">
+      <div id="user-message"></div>
+
+      <div id="index" class="welcome yo"></div>
+
+            <div class="welcome row">
+              <div class="col-12 text-center">
+                <h2 class="display-4">Recipe Journal</h2>
+              </div>
+              <div class="col-md-6">
+              <form id="sign-up">
+                <div class="form-group">
+                  <h3 class="display-5 text-center">Sign Up</h3><br>
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Confirm Password</label>
+                  <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-block btn-outline-success">Sign Up</button>
+              </form>
+            </div>
+
+            <div class="col-md-6">
+              <form class="d-flex flex-column sign-in" id="sign-in" style="height: 100%;">
+                <div class="form-group">
+                  <h3 class="display-5 text-center">Sign In</h3><br>
+                  <label>Email address</label>
+                  <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                </div>
+                <div style="margin-top: auto;">
+                <button type="submit" class="btn btn-block btn-outline-success">Sign In</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+      <!--change pw modal-->
+      <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <div class="form-group">
+                  <label>Enter your own password</label>
+                  <input type="password" name="passwords[old]" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
+                </div>
+                <div class="form-group">
+                  <label>New Password</label>
+                  <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--create recipe modal-->
+      <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New Entry</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="create-recipe">
+                <div class="form-group">
+                  <label>Name:</label>
+                  <input type="text" name="recipe[name]" class="form-control" placeholder="Name your recipe">
+                </div>
+                <div class="form-group">
+                  <label>Description:</label>
+                  <input type="text" name="recipe[description]" class="form-control" placeholder="Provide a short description">
+                </div>
+                <div class="form-group">
+                  <label>Ingredients:</label>
+                  <input type="text" name="recipe[ingredients]" class="form-control" placeholder="A list of ingredients">
+                </div>
+                <div class="form-group">
+                  <label>Instructions:</label>
+                  <textarea class="form-control" name="recipe[instructions]" placeholder="Instructions for your recipe" rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+      </div>
+    </body>
+</html>
